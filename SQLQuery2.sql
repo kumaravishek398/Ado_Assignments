@@ -4,7 +4,7 @@ use Travells
 go
 create table Businfo
 ( 
-BusID int primary key identity(1,1),
+BusID int primary key identity(1,1),  //auto incremented
 BoardingPoint nvarchar(10) not null,
 TravelDate date not null,
 Amount decimal (7,2) not null,
