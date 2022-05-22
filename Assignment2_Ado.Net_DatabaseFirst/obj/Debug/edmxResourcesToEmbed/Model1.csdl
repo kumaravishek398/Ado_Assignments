@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="REDBUSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BusInfo">
+    <Key>
+      <PropertyRef Name="BusID" />
+    </Key>
+    <Property Name="BusID" Type="Int32" Nullable="false" />
+    <Property Name="BoardingPoint" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TravelDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Rating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Bus_View">
+    <Key>
+      <PropertyRef Name="BusID" />
+      <PropertyRef Name="BoardingPoint" />
+    </Key>
+    <Property Name="BusID" Type="Int32" Nullable="false" />
+    <Property Name="BoardingPoint" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="REDBUSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BusInfoes" EntityType="Self.BusInfo" />
+    <EntitySet Name="Bus_View" EntityType="Self.Bus_View" />
+    <FunctionImport Name="spGetBusInfo" ReturnType="Collection(REDBUSModel.spGetBusInfo_Result)" />
+  </EntityContainer>
+  <ComplexType Name="spGetBusInfo_Result">
+    <Property Type="Int32" Name="BusID" Nullable="false" />
+    <Property Type="String" Name="BoardingPoint" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="TravelDate" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="Rating" Nullable="true" />
+  </ComplexType>
+</Schema>

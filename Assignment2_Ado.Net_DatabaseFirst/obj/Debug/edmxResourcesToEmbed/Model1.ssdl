@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="REDBUSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BusInfo">
+    <Key>
+      <PropertyRef Name="BusID" />
+    </Key>
+    <Property Name="BusID" Type="int" Nullable="false" />
+    <Property Name="BoardingPoint" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TravelDate" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'REDBUS.dbo.Bus_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Bus_View">
+    <Key>
+      <PropertyRef Name="BusID" />
+      <PropertyRef Name="BoardingPoint" />
+    </Key>
+    <Property Name="BusID" Type="int" Nullable="false" />
+    <Property Name="BoardingPoint" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Function Name="spGetBusInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="REDBUSModelStoreContainer">
+    <EntitySet Name="BusInfo" EntityType="Self.BusInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bus_View" EntityType="Self.Bus_View" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Bus_View].[BusID] AS [BusID], 
+    [Bus_View].[BoardingPoint] AS [BoardingPoint]
+    FROM [dbo].[Bus_View] AS [Bus_View]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

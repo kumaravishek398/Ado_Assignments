@@ -1,0 +1,27 @@
+﻿@model FootBallLeagueCF.Models.FootBall
+@using FootBallLeagueCF.Models
+
+@{
+    ViewBag.Title = "AddResult";
+}
+
+
+<body align="center" >
+    <h1>FootBall Result</h1>
+    <h3>Add Match Result </h3>
+    <hr />
+    <div align="center">
+        @using (Html.BeginForm("MyForm"))
+         {
+            <h5>MatchId : @Html.TextBoxFor(a => a.MatchID)</h5>
+            <h5>TeamName1 : @Html.TextBoxFor(a => a.TeamName1)</h5>
+            <h5>TeamName2 : @Html.TextBoxFor(a => a.TeamName2)</h5>
+            <h5>Status : @Html.TextBoxFor(a => a.Status)</h5>
+            <h5>WinningTeam : @Html.TextBoxFor(a => a.WinningTeam)</h5>
+            <h5>Points : @Html.TextBoxFor(a => a.Points)</h5>
+
+            <input type="submit" value="Save Match Data" />
+         }
+
+    </div>
+</body>

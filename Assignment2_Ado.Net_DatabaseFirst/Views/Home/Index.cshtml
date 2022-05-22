@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BusInfo>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<body align ="center">
+    <div>
+        <h1>PKR TRAVELS DETAILS</h1>
+        <hr />
+    </div>
+    <div>
+        @foreach (var item in Model)
+        {
+            <h3><b>Boarding Point : </b> @item.BoardingPoint</h3>
+            <h3><b>Travel Date : </b>@item.TravelDate</h3>
+            <h3><b>Amount : </b>@item.Amount</h3>
+            <h3><b>Rating : </b>@item.Rating</h3>
+            <hr /><hr />
+        }
+    </div>
+</body>

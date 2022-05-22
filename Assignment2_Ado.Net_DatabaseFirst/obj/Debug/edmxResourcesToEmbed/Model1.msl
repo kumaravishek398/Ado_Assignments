@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="REDBUSModelStoreContainer" CdmEntityContainer="REDBUSEntities">
+    <EntitySetMapping Name="BusInfoes">
+      <EntityTypeMapping TypeName="REDBUSModel.BusInfo">
+        <MappingFragment StoreEntitySet="BusInfo">
+          <ScalarProperty Name="BusID" ColumnName="BusID" />
+          <ScalarProperty Name="BoardingPoint" ColumnName="BoardingPoint" />
+          <ScalarProperty Name="TravelDate" ColumnName="TravelDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bus_View">
+      <EntityTypeMapping TypeName="REDBUSModel.Bus_View">
+        <MappingFragment StoreEntitySet="Bus_View">
+          <ScalarProperty Name="BusID" ColumnName="BusID" />
+          <ScalarProperty Name="BoardingPoint" ColumnName="BoardingPoint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetBusInfo" FunctionName="REDBUSModel.Store.spGetBusInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="REDBUSModel.spGetBusInfo_Result">
+          <ScalarProperty Name="BusID" ColumnName="BusID" />
+          <ScalarProperty Name="BoardingPoint" ColumnName="BoardingPoint" />
+          <ScalarProperty Name="TravelDate" ColumnName="TravelDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

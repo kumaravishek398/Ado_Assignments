@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FootBallLeagueCF.Models.FootBall>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<body>
+    <div>
+        <h2>
+            Viewing all Match Details...
+        </h2>
+
+        @foreach (var a in Model)
+        {
+            <p>
+                Match ID : @a.MatchID
+            </p>
+            <p>
+                TeamName 1: @a.TeamName1
+            </p>
+
+            <p>
+                TeamName 2: @a.TeamName2
+            </p>
+            <p>
+                Match Status : @a.Status
+            </p>
+            <p>
+                Winning Team : @a.WinningTeam
+            </p>
+            <p>
+                Points : @a.Points
+            </p>
+           
+            <hr />
+        }
+
+    </div>
+
+</body>

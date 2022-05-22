@@ -1,0 +1,40 @@
+﻿@model PKR_Travels_CodeFirst.Models.BusInfoCf
+@{
+    ViewBag.Title = "AddBusDetail";
+}
+
+<body align ="center">
+    <h2>ADD BUS DETAILS -</h2>
+    <div>
+
+        @using (Html.BeginForm("AddBusDetail", "Home"))
+         {
+
+            <p>
+
+                <b>@Html.DisplayName("BusId") </b>  - @Html.Editor("BusId")
+            </p>
+
+            <p>
+
+                <b>Boarding Point : </b> @Html.TextBoxFor(a => a.BoardingPoint)
+            </p>
+
+            <p>
+
+                <b> @Html.DisplayNameFor(a => a.TravelDate)</b> - @Html.EditorFor(b=>b.TravelDate)
+            </p>
+            <p>
+                <b>Amount : </b> @Html.TextBoxFor(a => a.Amount)
+            </p>
+            <p>
+                <b>@Html.DisplayName("Rating") </b>  - @Html.Editor("Rating")
+            </p>
+
+            <input type="submit" value="AddBusDetail" />
+         }
+    </div>
+</body>
+
+
+
